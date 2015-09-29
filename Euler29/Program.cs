@@ -33,9 +33,7 @@ namespace Euler29
     {
         private static readonly List<int> primesBelow100 = new List<int>() { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}; 
 
-        int _base;
-        int _exp;
-        int _primeFactors;
+        int _primeFactors; //bitarray representation of prime factors to speed up comparison
         public bool Equals(PrimeFactorRep other)
         {
             if (other._primeFactors != this._primeFactors)
@@ -56,8 +54,6 @@ namespace Euler29
         public static PrimeFactorRep ConvertPowerAOfBToPrimeFactors(int a, int b)
         {
             PrimeFactorRep p = GetPrimeFactorRep(a);
-            p._base = a;
-            p._exp = b;
             List<int> keys = p.Keys.ToList();
             foreach(int k in keys)
             {
